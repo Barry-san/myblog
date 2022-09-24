@@ -1,0 +1,41 @@
+*{
+    box-sizing: border-box;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    background-color: #89f8ce;
+    margin: 0;
+    outline: solid black 2px;
+    max-height: 10vh;
+
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    padding: 5px 1rem;
+    font-size: large;
+}
+
+a:hover{
+    color: #DEC8ED;
+    border: solid 1px white;
+}
+.links{
+    gap: 1rem;
+}
+
+.blogname{
+    color: #CC99F9;
+    font-size: xx-large;
+    font-weight: 800;
+    padding: 0 5px;
+}
+.blogname:hover{
+    border: none;
+}

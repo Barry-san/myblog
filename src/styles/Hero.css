@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+  line-height: 1.6;
+}
+
+.hero {
+  min-height: 100vh;
+  margin: 0 0;
+  /* border-bottom: solid 1px black; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+}
+.text {
+  padding: 1rem;
+}
+
+.children {
+  min-height: 60%;
+  min-width: 70%;
+  display: grid;
+  place-items: center;
+}
+.image-box {
+  min-height: 60vh;
+  background-image: url("../../public/pexels-ann-h-1762851.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 40em) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+  }
+  .children {
+    min-width: 100%;
+    font-size: 0.2rem;
+    text-align: justify;
+    word-wrap: break-word;
+  }
+  .text {
+    font-size: 1rem;
+  }
+}

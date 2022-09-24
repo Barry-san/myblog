@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+.login {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  height: 100vh;
+}
+
+.banner {
+  background-image: url(../../public/retro-furnish.png);
+  height: 100%;
+  grid-column: 1/4;
+}
+.form-container {
+  grid-column: 4/6;
+  display: grid;
+  place-items: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+
+.login-btn {
+  background-color: #f5fac7;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 8px;
+  font-size: large;
+}
+form {
+  display: grid;
+  gap: 2em;
+}
+@media (max-width: 450px) {
+  .banner {
+    display: none;
+  }
+  .login {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .form-container {
+    grid-column: 1/2;
+  }
+}
