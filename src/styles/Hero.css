@@ -6,11 +6,10 @@
 .hero {
   min-height: 100vh;
   margin: 0 0;
-  /* border-bottom: solid 1px black; */
+  border-bottom: solid 1px black;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  align-items: center;
-  justify-items: center;
+  place-items: center;
 }
 .text {
   padding: 1rem;
