@@ -15,7 +15,7 @@ const Navlinks = () => {
         <div className="links">
           <Link to={"/"}> New blog</Link>
           <Link to={"/profile"}> Profile</Link>
-          <Link to={"/"} onClick={signOut}>
+          <Link to={"/"} onClick={signOut(auth)}>
             Log out
           </Link>
         </div>
