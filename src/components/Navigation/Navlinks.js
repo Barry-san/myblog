@@ -1,20 +1,20 @@
 import { auth } from "../../config/firebaseConfig";
 import { signOut } from "firebase/auth";
 import { Link } from "react-router-dom";
-const Navlinks = () => {
+const Navlinks = (props) => {
   return (
     <div className="navlinks">
-      {!auth.currentUser && (
+      {!props.user && (
         <div className="links">
           <Link to={"/login"}> Login</Link>
           <Link to={"/register"}> Sign up</Link>
         </div>
       )}
-
-      {auth.currentUser && (
+      {props.user && (
         <div className="links">
-          <Link to={"/"}> New blog</Link>
-          <Link to={"/profile"}> Profile</Link>
+          {console.log("navlinks:", props)}
+          <Link to={"/create"}> New blog</Link>
+          <Link to={"/"}> Profile</Link>
           <Link to={"/"} onClick={signOut(auth)}>
             Log out
           </Link>
