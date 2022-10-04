@@ -1,11 +1,10 @@
-import { auth } from "../config/firebaseConfig";
-
 function Profile() {
   return (
     <div className="profile">
-      <p>UserName: {auth.currentUser.displayName}</p>
+      <h1>This is the profile page!</h1>
+      <p>UserName: </p>
       <br />
-      <p>Email: {auth.currentUser.email}</p>
+      <p>Email: </p>
     </div>
   );
 }
