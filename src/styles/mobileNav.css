@@ -1,51 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border-bottom: solid black 1px;
   background-color: #89f8ce;
-  padding: 0.3125rem;
+  max-height: 5rem;
+  margin-bottom: 0;
 }
 
 .blog-name {
-  font-size: larger;
+  font-size: 2rem;
+  text-align: center;
   font-weight: 700;
   color: #cc99f9;
-  margin: 0px;
-  padding: auto 0px;
 }
 
 .blog-name:hover {
-  border: none;
+  border: black 1px solid;
 }
 
 .home {
-  background-color: #ffff2000;
+  background-color: transparent;
   background-image: url(../../public/menu_FILL0_wght400_GRAD0_opsz48.svg);
   border: none;
-  width: 50px;
-  height: 40px;
+  min-width: 50px;
+  min-height: 40px;
 }
 
 .dropdown {
   position: absolute;
-  top: 46px;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 55px;
+  right: 0px;
   width: 100%;
-  height: 50vh;
-  background-color: #f5fac7;
   margin: 20px 0px;
+  transition: ease-in-out 1s;
 }
 
 .dropdown > .navlinks > .links {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  gap: 1rem;
+  justify-content: space-evenly;
+  width: 100%;
 }
 .dropdown > .navlinks > .links > a {
-  font-size: larger;
+  font-size: 1rem;
   display: block;
   width: 100%;
-  border-bottom: 1px solid black;
+  color: white;
+  font-weight: 500;
   padding: 0.65rem;
 }

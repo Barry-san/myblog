@@ -1,45 +1,44 @@
 * {
   box-sizing: border-box;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .hero {
-  min-height: 100vh;
-  margin: 0 0;
-  border-bottom: solid 1px black;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  place-items: center;
+  display: flex;
+  flex-direction: column;
 }
-.text {
-  padding: 1rem;
-}
-
-.children {
-  min-height: 60%;
-  min-width: 70%;
-  display: grid;
-  place-items: center;
+@media (min-width: 42em) {
+  .hero {
+    flex-direction: row;
+    min-height: 80vh;
+    font-size: 1.15em;
+    gap: 1rem;
+  }
 }
 .image-box {
-  min-height: 60vh;
+  min-width: 50%;
+  min-height: 50vh;
   background-image: url("../../public/pexels-ann-h-1762851.jpg");
   background-size: cover;
   background-position: center;
 }
 
-@media (max-width: 40em) {
-  .hero {
-    display: flex;
-    flex-direction: column;
-  }
-  .children {
-    min-width: 100%;
-    font-size: 0.2rem;
-    text-align: justify;
-    word-wrap: break-word;
-  }
-  .text {
-    font-size: 1rem;
-  }
+h2 {
+  margin-bottom: 0;
+}
+.text {
+  text-align: justify;
+  padding: 1rem;
+}
+.children {
+  display: flex;
+  align-items: center;
+}
+.title {
+  text-align: center;
+}
+.author {
+  margin-top: 0;
+  text-decoration: underline;
+  color: #313131;
 }

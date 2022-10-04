@@ -1,0 +1,11 @@
+* {
+  font-size: 1.1rem;
+}
+.text-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 1rem;
+  max-width: 30rem;
+  margin: auto;
+}
