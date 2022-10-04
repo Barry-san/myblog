@@ -1,14 +1,13 @@
 import "../../styles/Header.css";
 import Navlinks from "./Navlinks";
 import { Link } from "react-router-dom";
-
-const Header = () => {
+const Header = (props) => {
   return (
-    <div className="header">
+    <div className="header sticky">
       <Link to={"/"} className="blogname">
-        Blog
+        Bankai!
       </Link>
-      <Navlinks />
+      <Navlinks user={props.user} />
     </div>
   );
 };
