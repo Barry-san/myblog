@@ -1,31 +1,41 @@
 import "./styles/App.css";
-import { auth } from "./config/firebaseConfig";
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./components/Navigation/Header";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./config/firebaseConfig";
 import Hero from "./components/Hero";
 import Login from "./components/Login.js";
-import MobileNav from "./components/Navigation/MobileNav";
-import Profile from "./components/Profile";
+import Navbar from "./components/Navigation/Navbar";
 import Register from "./components/Register";
+import Create from "./components/Create";
+import { useState } from "react";
 
 function App() {
+  const [user, setUser] = useState("");
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log("logged in");
+        localStorage.setItem("user", JSON.stringify(user));
+        setUser(user);
+      }
+    });
+  }, [user]);
   return (
     <BrowserRouter>
       <div className="App">
-        {window.innerWidth > 450 && <Header></Header>}
-        {window.innerWidth <= 450 && <MobileNav />}
+        <Navbar user={user} />
         <Routes>
           <Route exact path="/" element={<Hero></Hero>}></Route>
           <Route exact path="/login" element={<Login />}></Route>
           <Route exact path="/register" element={<Register />}></Route>
-          {auth.currentUser && (
-            <Route exact path="/profile" element={<Profile />}></Route>
-          )}
+          <Route exact path="/create" element={<Create></Create>}></Route>
           <Route
             path="/*"
             element={
               <div>
                 <h1>Error!!!!</h1>
+                <p>page not found.</p>
               </div>
             }
           ></Route>
