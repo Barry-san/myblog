@@ -8,6 +8,9 @@ const Register = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [FirstName, setFirst] = useState("");
+  const [LastName, setLast] = useState("");
+
   const handlePassword = (e) => {
     const input = e.target.value;
     setPassword(input);
@@ -15,6 +18,14 @@ const Register = () => {
   const handleEmail = (e) => {
     const input = e.target.value;
     setEmail(input);
+  };
+  const handleFirst = (e) => {
+    const input = e.target.value;
+    setFirst(input);
+  };
+  const handleLast = (e) => {
+    const input = e.target.value;
+    setLast(input);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,13 +43,31 @@ const Register = () => {
     <div className="login">
       <div className="banner"></div>
       <div className="form-container">
-        <form action="">
+        <form>
+          <div className="form-group">
+            <label>First Name</label>
+            <input
+              type="text"
+              required
+              value={FirstName}
+              onChange={handleFirst}
+            />
+          </div>
+          <div className="form-group">
+            <label>Last Name</label>
+            <input
+              type="text"
+              required
+              value={LastName}
+              onChange={handleLast}
+            />
+          </div>
           <div className="form-group">
             <label>Email</label>
             <input type="email" required value={email} onChange={handleEmail} />
           </div>
           <div className="form-group">
-            <label>password</label>
+            <label>Password</label>
             <input
               type="password"
               required
