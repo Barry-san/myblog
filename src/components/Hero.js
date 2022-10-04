@@ -8,7 +8,7 @@ const Hero = () => {
         <div className="text">
           <div className="title">
             <h2>Unleashing Creativity</h2>
-            <p>
+            <p className="author">
               <i>written by BarryFischer</i>
             </p>
           </div>
