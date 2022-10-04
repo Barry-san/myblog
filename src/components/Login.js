@@ -19,12 +19,12 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
-      .then((response) => {
-        console.log(response);
+      .then(() => {
         navigate("/");
       })
       .catch((error) => {
-        alert(error);
+        console.table(error);
+        alert(error.message);
       });
   };
   return (
@@ -37,7 +37,7 @@ const Login = () => {
             <input type="email" required value={email} onChange={handleEmail} />
           </div>
           <div className="form-group">
-            <label>password</label>
+            <label>Password</label>
             <input
               type="password"
               required
@@ -45,11 +45,12 @@ const Login = () => {
               onChange={handlePassword}
             />
           </div>
-          <div>
+          <div className="btn-div">
             <button className="login-btn" onClick={handleSubmit}>
               Login
             </button>
           </div>
+          {/* <Link className="alt">Sign in with google</Link> */}
         </form>
       </div>
     </div>
