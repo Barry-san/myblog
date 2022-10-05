@@ -13,9 +13,9 @@ const Hero = () => {
             </p>
           </div>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur
-            fuga tenetur eveniet illo repellat iure praesentium? Necessitatibus
-            optio eos ullam, officiis non omnis nemo debitis.
+            “There is no doubt that creativity is the most important human
+            resource of all. Without creativity, there would be no progress, and
+            we would be forever repeating the same patterns.” - Edward De Bono
           </p>
         </div>
       </div>
