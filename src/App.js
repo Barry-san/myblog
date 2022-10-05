@@ -21,6 +21,8 @@ function App() {
       }
     });
   }, [user]);
+  const used = localStorage.getItem("user");
+  console.log(used);
   return (
     <BrowserRouter>
       <div className="App">
