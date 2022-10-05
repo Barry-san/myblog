@@ -31,7 +31,9 @@ function App() {
           <Route exact path="/" element={<Hero></Hero>}></Route>
           <Route exact path="/login" element={<Login />}></Route>
           <Route exact path="/register" element={<Register />}></Route>
-          <Route exact path="/create" element={<Create></Create>}></Route>
+          {user && (
+            <Route exact path="/create" element={<Create></Create>}></Route>
+          )}
           <Route
             path="/*"
             element={
