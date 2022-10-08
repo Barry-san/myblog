@@ -3,7 +3,7 @@ import Navlinks from "./Navlinks";
 import "../../styles/mobileNav.css";
 import { useState } from "react";
 
-const MobileNav = (props) => {
+const MobileNav = () => {
   let [clicked, setClick] = useState("false");
   const handlClick = () => {
     const which = () => {
@@ -23,7 +23,7 @@ const MobileNav = (props) => {
 
       {clicked === "true" && (
         <div className="dropdown">
-          <Navlinks user={props.user}></Navlinks>
+          <Navlinks></Navlinks>
         </div>
       )}
     </div>
