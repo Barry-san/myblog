@@ -3,34 +3,35 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./config/firebaseConfig";
-import Hero from "./components/Hero";
+import Home from "./components/Home";
 import Login from "./components/Login.js";
 import Navbar from "./components/Navigation/Navbar";
-import Register from "./components/Register";
 import Create from "./components/Create";
-import { useState } from "react";
+import React, { useState } from "react";
+// import Blogs from "./components/Blogs";
+
+export const userContext = React.createContext();
 
 function App() {
   const [user, setUser] = useState("");
   useEffect(() => {
+    console.log("useEffect ran");
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log("logged in");
-        localStorage.setItem("user", JSON.stringify(user));
         setUser(user);
       }
     });
   }, [user]);
-  const used = localStorage.getItem("user");
-  console.log(used);
+
   return (
     <BrowserRouter>
       <div className="App">
-        <Navbar user={user} />
+        <userContext.Provider value={user}>
+          <Navbar />
+        </userContext.Provider>
         <Routes>
-          <Route exact path="/" element={<Hero></Hero>}></Route>
+          <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/login" element={<Login />}></Route>
-          <Route exact path="/register" element={<Register />}></Route>
           {user && (
             <Route exact path="/create" element={<Create></Create>}></Route>
           )}
