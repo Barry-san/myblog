@@ -14,7 +14,7 @@ const UseFetch = () => {
       setPending(false);
     }
     getData().catch((err) => setError(err));
-  }, [isPending]);
+  }, []);
   return { isPending, data, Error };
 };
 
