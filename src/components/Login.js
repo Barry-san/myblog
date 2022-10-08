@@ -1,6 +1,9 @@
 import "../styles/Login.css";
 import { auth } from "../config/firebaseConfig";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -19,12 +22,21 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
+      .then((res) => {
         navigate("/");
       })
       .catch((error) => {
-        console.table(error);
-        alert(error.message);
+        alert(error);
+      });
+  };
+  const handleSubmit2 = (e) => {
+    e.preventDefault();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((err) => {
+        alert(err);
       });
   };
   return (
@@ -32,6 +44,14 @@ const Login = () => {
       <div className="banner"></div>
       <div className="form-container">
         <form action="">
+          <div className="top-content">
+            <h1 className="Login-heading">Login</h1>
+            <div>
+              <button>Sign in with google </button>
+            </div>
+            <p>or sign in with email and password:</p>
+          </div>
+
           <div className="form-group">
             <label>Email</label>
             <input type="email" required value={email} onChange={handleEmail} />
@@ -49,8 +69,8 @@ const Login = () => {
             <button className="login-btn" onClick={handleSubmit}>
               Login
             </button>
+            <button onClick={handleSubmit2}>Register</button>
           </div>
-          {/* <Link className="alt">Sign in with google</Link> */}
         </form>
       </div>
     </div>
