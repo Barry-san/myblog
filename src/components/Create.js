@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "../styles/Create.css";
+import { db } from "../config/firebaseConfig";
+import { collection, addDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
+import { userContext } from "../App";
 
 const Create = () => {
+  const user = useContext(userContext);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [content, setContent] = useState("");
+  const author = user ? user.email : null;
+  const blog = { title, description, content, author: author };
+  const navigate = useNavigate();
   const handleTitle = (e) => {
     let input = e.target.value;
     setTitle(input);
@@ -17,9 +25,18 @@ const Create = () => {
     let input = e.target.value;
     setContent(input);
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addDoc(collection(db, "blogs"), blog)
+      .then(console.log("done with that"))
+      .catch((err) => {
+        alert(err.message);
+      });
+    navigate("/");
+  };
   return (
     <div className="create">
-      <form action="POST">
+      <form>
         <div className="text-group">
           <label>Blog Title</label>
           <input
@@ -49,8 +66,9 @@ const Create = () => {
             value={content}
             onChange={handleContent}
           ></textarea>
+          <input type="file"></input>
         </div>
-        <button>submit</button>
+        <button onClick={handleSubmit}>submit</button>
       </form>
     </div>
   );
