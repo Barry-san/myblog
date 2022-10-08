@@ -34,6 +34,7 @@ h2 {
 .children {
   display: flex;
   align-items: center;
+  animation: loading 2s forwards linear;
 }
 .title {
   text-align: center;
@@ -42,4 +43,12 @@ h2 {
   margin-top: 0;
   text-decoration: underline;
   color: #313131;
+}
+@keyframes loading {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
