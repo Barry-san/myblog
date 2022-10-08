@@ -1,0 +1,20 @@
+.loading {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-image: linear-gradient(#2e3192, #1bffff);
+  margin: 20px auto;
+  animation: load linear 0.8s infinite;
+}
+
+@keyframes load {
+  0% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: 180deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
