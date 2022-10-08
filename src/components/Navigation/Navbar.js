@@ -1,11 +1,14 @@
 import Header from "./Header";
 import MobileNav from "./MobileNav";
+import { useLocation } from "react-router-dom";
 
-const Navbar = (props) => {
+const Navbar = () => {
+  const location = useLocation();
+  if (location.pathname === "/login") return null;
   return (
     <div className="Navbar">
-      {window.innerWidth > 710 && <Header user={props.user}></Header>}
-      {window.innerWidth <= 710 && <MobileNav user={props.user} />}
+      <Header />
+      <MobileNav />
     </div>
   );
 };
