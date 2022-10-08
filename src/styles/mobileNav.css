@@ -55,3 +55,8 @@
   font-weight: 500;
   padding: 0.65rem;
 }
+@media screen and (min-width: 600px) {
+  .nav {
+    display: none;
+  }
+}
