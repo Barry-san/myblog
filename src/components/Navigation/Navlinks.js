@@ -1,18 +1,20 @@
 import { auth } from "../../config/firebaseConfig";
 import { signOut } from "firebase/auth";
 import { Link } from "react-router-dom";
-const Navlinks = (props) => {
+import { userContext } from "../../App";
+import { useContext } from "react";
+const Navlinks = () => {
+  const user = useContext(userContext);
   return (
     <div className="navlinks">
-      {!props.user && (
+      {!user && (
         <div className="links">
           <Link to={"/login"}> Login</Link>
           <Link to={"/register"}> Sign up</Link>
         </div>
       )}
-      {props.user && (
+      {user && (
         <div className="links">
-          {console.log("navlinks:", props)}
           <Link to={"/create"}> New blog</Link>
           <Link to={"/"}> Profile</Link>
           <Link to={"/"} onClick={signOut(auth)}>
