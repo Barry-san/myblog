@@ -3,11 +3,14 @@ import { auth } from "../config/firebaseConfig";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithRedirect,
 } from "firebase/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const provider = new GoogleAuthProvider();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -39,6 +42,9 @@ const Login = () => {
         alert(err);
       });
   };
+  const handleClicky = () => {
+    signInWithRedirect(auth, provider);
+  };
   return (
     <div className="login">
       <div className="banner"></div>
@@ -47,7 +53,9 @@ const Login = () => {
           <div className="top-content">
             <h1 className="Login-heading">Login</h1>
             <div>
-              <button>Sign in with google </button>
+              <button onClick={handleClicky} name="sign-in with google">
+                Sign in with google
+              </button>
             </div>
             <p>or sign in with email and password:</p>
           </div>
@@ -66,10 +74,20 @@ const Login = () => {
             />
           </div>
           <div className="btn-div">
-            <button className="login-btn" onClick={handleSubmit}>
+            <button
+              className="login-btn"
+              onClick={handleSubmit}
+              name="login button"
+            >
               Login
             </button>
-            <button onClick={handleSubmit2}>Register</button>
+            <button
+              classnanme="reg-btn"
+              onClick={handleSubmit2}
+              name="register button"
+            >
+              Register
+            </button>
           </div>
         </form>
       </div>
