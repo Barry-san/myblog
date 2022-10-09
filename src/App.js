@@ -8,7 +8,8 @@ import Login from "./components/Login.js";
 import Navbar from "./components/Navigation/Navbar";
 import Create from "./components/Create";
 import React, { useState } from "react";
-// import Blogs from "./components/Blogs";
+import Register from "./components/Register";
+import Profile from "./components/Profile";
 
 export const userContext = React.createContext();
 
@@ -32,8 +33,12 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/login" element={<Login />}></Route>
+          <Route exact path="/register" element={<Register />}></Route>
           {user && (
             <Route exact path="/create" element={<Create></Create>}></Route>
+          )}
+          {user && (
+            <Route exact path="/profile" element={<Profile></Profile>}></Route>
           )}
           <Route
             path="/*"
