@@ -31,7 +31,8 @@ button {
   border: 1px solid black;
 }
 .login-btn {
-  display: flex;
+  display: grid;
+  place-items: center;
   color: white;
   margin-left: 26.4px;
 }
@@ -47,8 +48,6 @@ button {
     background-size: contain;
   }
   .form-container {
-    display: grid;
-    /* place-items: center; */
     width: 100%;
   }
 }
