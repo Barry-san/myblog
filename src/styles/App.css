@@ -1,6 +1,10 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap");
+
+/* .App {
   text-align: center;
-}
+} */
 
 .App-logo {
   height: 40vmin;
@@ -23,12 +27,14 @@
 }
 
 ::-webkit-scrollbar {
+  background-color: #cc99f9;
   width: 5px;
   height: 2px;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: blue;
-  height: 7px;
+  background-color: white;
+  border: black solid 1px;
+  max-height: 7px;
   width: 5px;
   border-radius: 20px;
 }
