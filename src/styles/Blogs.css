@@ -1,20 +1,31 @@
-* {
-  line-height: 1.6;
-  margin: 0;
-}
-
 .Blogs {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   padding: 1rem;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 .blogcard {
   padding: 2rem;
-  /* background-color: red; */
+  outline: 1px solid #cc99f9;
+  transition: box-shadow ease-in-out 0.3s;
 }
 .blogcard:hover {
-  box-shadow: 1px 4px 1px 3px black;
+  outline: none;
+  box-shadow: 5px 5px 4px 6px rgb(204, 153, 249, 1);
   border: solid black 1px;
+  font-family: "Titillium Web", sans-serif;
+}
+h3 {
+  font-size: 2rem;
+}
+@media screen and (max-width: 800px) {
+  .Blogs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 500px) {
+  .Blogs {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
