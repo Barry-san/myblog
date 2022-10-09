@@ -29,12 +29,13 @@
 ::-webkit-scrollbar {
   background-color: #cc99f9;
   width: 5px;
-  height: 2px;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: white;
-  border: black solid 1px;
-  max-height: 7px;
+  background-color: rgb(246, 246, 246);
   width: 5px;
   border-radius: 20px;
+}
+a {
+  text-decoration: none;
+  color: black;
 }
