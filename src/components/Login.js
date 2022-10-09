@@ -43,8 +43,7 @@ const Login = () => {
       });
   };
   const handleClicky = () => {
-    signInWithRedirect(auth, provider);
-    navigate("/");
+    signInWithRedirect(auth, provider).then(navigate("/"));
   };
   return (
     <div className="login">
