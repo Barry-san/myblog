@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div className="header sticky">
       <Link to={"/"} className="blogname">
-        Bankai!
+        BANKAI!
       </Link>
       <Navlinks />
     </div>
