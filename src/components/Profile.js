@@ -1,4 +1,4 @@
-import { userContext } from "../App";
+// import { userContext } from "../App";
 // import { useContext } from "react";
 function Profile() {
   // const user = useContext(userContext);
