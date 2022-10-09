@@ -1,16 +1,14 @@
 import { Link } from "react-router-dom";
 import Navlinks from "./Navlinks";
 import "../../styles/mobileNav.css";
-import { useState } from "react";
 
 const MobileNav = () => {
-  let [clicked, setClick] = useState("false");
+  let clicked = false;
   const handlClick = () => {
-    const which = () => {
-      if (clicked === "false") return "true";
-      return "false";
-    };
-    setClick(which());
+    clicked = !clicked;
+    clicked
+      ? (document.querySelector(".dropdown").style.display = "block")
+      : (document.querySelector(".dropdown").style.display = "none");
   };
   return (
     <div className="mobile-nav">
@@ -21,11 +19,11 @@ const MobileNav = () => {
         <button onClick={handlClick} className="home"></button>
       </div>
 
-      {clicked === "true" && (
-        <div className="dropdown">
+      {
+        <div className="dropdown" onBlur={handlClick}>
           <Navlinks></Navlinks>
         </div>
-      )}
+      }
     </div>
   );
 };
