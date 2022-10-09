@@ -6,7 +6,7 @@
 .hero {
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #cc99f9;
 }
 @media (min-width: 42em) {
   .hero {
@@ -19,7 +19,7 @@
 .image-box {
   min-width: 50%;
   min-height: 50vh;
-  background-image: url("../../public/florian-klauer-mk7D-4UCfmg-unsplash.jpg");
+  background-image: url("../../public/pexels-andrea-piacquadio-3808904.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -30,11 +30,13 @@ h2 {
 .text {
   text-align: justify;
   padding: 1rem;
+  font-family: "Outfit", sans-serif;
 }
 .children {
+  /* background-color: #cc99f9; */
   display: flex;
   align-items: center;
-  animation: loading 2s forwards linear;
+  /* animation: loading 2s forwards linear; */
 }
 .title {
   text-align: center;
