@@ -2,12 +2,11 @@ import "../styles/Login.css";
 import { auth } from "../config/firebaseConfig";
 import {
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithRedirect,
 } from "firebase/auth";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
   const provider = new GoogleAuthProvider();
@@ -23,25 +22,27 @@ const Login = () => {
     setEmail(input);
   };
   const handleSubmit = (e) => {
-    e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((res) => {
-        navigate("/");
-      })
-      .catch((error) => {
-        alert(error);
-      });
+    if (email && password) {
+      e.preventDefault();
+      signInWithEmailAndPassword(auth, email, password)
+        .then((res) => {
+          navigate("/");
+        })
+        .catch((error) => {
+          alert(error);
+        });
+    }
   };
-  const handleSubmit2 = (e) => {
-    e.preventDefault();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        navigate("/");
-      })
-      .catch((err) => {
-        alert(err);
-      });
-  };
+  // const handleSubmit2 = (e) => {
+  //   e.preventDefault();
+  //   createUserWithEmailAndPassword(auth, email, password)
+  //     .then(() => {
+  //       navigate("/");
+  //     })
+  //     .catch((err) => {
+  //       alert(err);
+  //     });
+  // };
   const handleClicky = () => {
     signInWithRedirect(auth, provider).then(navigate("/"));
   };
@@ -49,7 +50,7 @@ const Login = () => {
     <div className="login">
       <div className="banner"></div>
       <div className="form-container">
-        <form action="">
+        <form>
           <div className="top-content">
             <h1 className="Login-heading">Login</h1>
             <div>
@@ -81,13 +82,14 @@ const Login = () => {
             >
               Login
             </button>
-            <button
+            {/* <button
               classnanme="reg-btn"
-              onClick={handleSubmit2}
               name="register button"
+              style={{ background: "white", color: "purple" }}
             >
+              <Link to={"/register"}></Link>
               Register
-            </button>
+            </button> */}
           </div>
         </form>
       </div>
