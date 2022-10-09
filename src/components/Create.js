@@ -4,6 +4,7 @@ import { db } from "../config/firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { userContext } from "../App";
+import Profile from "./Profile";
 
 const Create = () => {
   const user = useContext(userContext);
@@ -70,6 +71,7 @@ const Create = () => {
         </div>
         <button onClick={handleSubmit}>submit</button>
       </form>
+      <Profile />
     </div>
   );
 };
