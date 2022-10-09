@@ -1,13 +1,9 @@
-* {
-  box-sizing: border-box;
-}
-
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: solid black 1px;
-  background-color: #89f8ce;
+  background-color: #cc99f9;
   height: 60px;
   margin-bottom: 0;
 }
@@ -16,7 +12,7 @@
   font-size: 2rem;
   text-align: center;
   font-weight: 700;
-  color: #cc99f9;
+  color: white;
 }
 
 .blog-name:hover {
@@ -45,6 +41,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  text-align: center;
   width: 100%;
 }
 .dropdown > .navlinks > .links > a {
