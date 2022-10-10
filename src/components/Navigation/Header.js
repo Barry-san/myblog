@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div className="header sticky">
       <Link to={"/"} className="blogname">
-        BANKAI!
+        <span style={{ fontSize: "2.3rem" }}>BANKAI!</span>
       </Link>
       <Navlinks />
     </div>
