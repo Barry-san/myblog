@@ -10,6 +10,7 @@ import Create from "./components/Create";
 import React, { useState } from "react";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
+import Blogdetails from "./components/Blogdetails";
 
 export const userContext = React.createContext();
 
@@ -35,6 +36,7 @@ function App() {
           <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/login" element={<Login />}></Route>
           <Route exact path="/register" element={<Register />}></Route>
+          <Route exact path="/blog/:id" element={<Blogdetails />}></Route>
           {user && (
             <Route exact path="/create" element={<Create></Create>}></Route>
           )}
