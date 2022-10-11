@@ -1,25 +1,24 @@
-import { getDoc, collection } from "firebase/firestore";
+import { getDoc, doc } from "firebase/firestore";
 import { useState } from "react";
 import { db } from "../config/firebaseConfig";
 
 const useData = (id) => {
+  const [docu, setDocu] = useState("");
   const [pending, setPending] = useState(true);
-  const [data, setData] = useState("");
-  const [error, setError] = useState(false);
-  async function fetcher() {
-    const blog = await getDoc(
-      collection(db, "blogs", id)
-        .then((res) => {
-          setData(res);
-          setPending(false);
-        })
-        .catch(() => {
-          setError(true);
-        })
-    );
+  const [error, setError] = useState("");
+  async function getblog() {
+    const data = await getDoc(doc(db, "blogs", id));
+    return data;
   }
-  //   setData(fetcher());
-  return { data, error, pending };
+  try {
+    setDocu(getblog());
+    console.log(docu);
+    setPending(false);
+  } catch (error) {
+    setError(error);
+    setPending(false);
+  }
+  return { docu, pending, error };
 };
 
 export default useData;
