@@ -1,18 +1,23 @@
 import { useState, useContext } from "react";
 import "../styles/Create.css";
 import { db } from "../config/firebaseConfig";
-import { collection, addDoc } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  connectFirestoreEmulator,
+} from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-import { userContext } from "../App";
 import Profile from "./Profile";
 
 const Create = () => {
-  const user = useContext(userContext);
+  const temp = localStorage.getItem("user");
+  const user = JSON.parse(temp);
+  const author = user.displayName;
+  console.warn(author);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [content, setContent] = useState("");
-  const author = user ? user.email : null;
-  const blog = { title, description, content, author: author };
+  const blog = { title, description, content, author };
   const navigate = useNavigate();
   const handleTitle = (e) => {
     let input = e.target.value;
@@ -28,6 +33,7 @@ const Create = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(blog);
     addDoc(collection(db, "blogs"), blog)
       .then(console.log("done with that"))
       .catch((err) => {
