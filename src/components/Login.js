@@ -43,9 +43,8 @@ const Login = () => {
           <h1 className="Login-heading">Login</h1>
           <div>
             <button
-              onClick={() => {
-                signInWithRedirect(auth, provider);
-                navigate("/");
+              onClick={async () => {
+                await signInWithRedirect(auth, provider).then(navigate("/"));
               }}
               name="sign-in with google"
             >
