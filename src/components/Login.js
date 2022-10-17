@@ -34,7 +34,6 @@ const Login = () => {
     }
   };
 
-  const handleClicky = () => {};
   return (
     <div className="login">
       <div className="banner"></div>
