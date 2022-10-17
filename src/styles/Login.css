@@ -29,6 +29,7 @@ button {
   color: white;
   background-color: #cc99f9;
   border: 1px solid black;
+  cursor: pointer;
 }
 .login-btn {
   display: grid;
