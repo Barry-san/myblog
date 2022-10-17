@@ -34,8 +34,8 @@ const Login = () => {
     }
   };
 
-  const handleClicky = () => {
-    signInWithRedirect(auth, provider);
+  const handleClicky = async () => {
+    await signInWithRedirect(auth, provider);
   };
   return (
     <div className="login">
