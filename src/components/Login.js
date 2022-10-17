@@ -36,6 +36,7 @@ const Login = () => {
 
   const handleClicky = async () => {
     await signInWithRedirect(auth, provider);
+    navigate("/");
   };
   return (
     <div className="login">
@@ -48,7 +49,7 @@ const Login = () => {
               <button
                 onClick={() => {
                   handleClicky();
-                  navigate("/");
+                  // navigate("/");
                 }}
                 name="sign-in with google"
               >
