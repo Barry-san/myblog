@@ -14,3 +14,6 @@ a {
   text-decoration: none;
   color: black;
 }
+body {
+  font-family: "Titillium Web", sans-serif;
+}
