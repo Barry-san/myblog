@@ -1,17 +1,15 @@
 import Hero from "./Hero";
 import Blogs from "./Blogs";
-import useFetch from "../hooks/useFetch";
+// import useFetch from "../hooks/useFetch";
 import "../styles/Loading.css";
 import Footer from "./Footer";
 
-const Home = () => {
-  const props = useFetch();
-
+const Home = (props) => {
   return (
     <div className="home-component">
       <Hero />
-      {props.isPending && <div className="loading"></div>}
-      {!props.isPending && <Blogs blog={props}></Blogs>}
+      {props.props.isPending && <div className="loading"></div>}
+      {!props.props.isPending && <Blogs blog={props.props}></Blogs>}
       <Footer />
     </div>
   );
