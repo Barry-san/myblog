@@ -47,6 +47,7 @@ const Login = () => {
                 await signInWithRedirect(auth, provider)
                   .then(navigate("/"))
                   .catch((err) => {
+                    console.log(err.message);
                     console.log(err);
                   });
               }}
@@ -72,11 +73,7 @@ const Login = () => {
             />
           </div>
           <div className="btn-div">
-            <button
-              className="login-btn"
-              // onClick={handleSubmit}
-              name="login button"
-            >
+            <button className="login-btn" name="login button">
               Login
             </button>
           </div>
