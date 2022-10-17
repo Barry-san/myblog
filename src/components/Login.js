@@ -42,23 +42,22 @@ const Login = () => {
     <div className="login">
       <div className="banner"></div>
       <div className="form-container">
-        <form>
-          <div className="top-content">
-            <h1 className="Login-heading">Login</h1>
-            <div>
-              <button
-                onClick={() => {
-                  handleClicky();
-                  // navigate("/");
-                }}
-                name="sign-in with google"
-              >
-                Sign in with google
-              </button>
-            </div>
-            <p>or sign in with email and password:</p>
+        <div className="top-content">
+          <h1 className="Login-heading">Login</h1>
+          <div>
+            <button
+              onClick={() => {
+                handleClicky();
+                // navigate("/");
+              }}
+              name="sign-in with google"
+            >
+              Sign in with google
+            </button>
           </div>
-
+          <p>or sign in with email and password:</p>
+        </div>
+        <form>
           <div className="form-group">
             <label>Email</label>
             <input type="email" required value={email} onChange={handleEmail} />
