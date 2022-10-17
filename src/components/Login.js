@@ -34,9 +34,7 @@ const Login = () => {
     }
   };
 
-  const handleClicky = () => {
-    signInWithRedirect(auth, provider);
-  };
+  const handleClicky = () => {};
   return (
     <div className="login">
       <div className="banner"></div>
@@ -46,8 +44,7 @@ const Login = () => {
           <div>
             <button
               onClick={() => {
-                handleClicky();
-                navigate("/");
+                signInWithRedirect(auth, provider);
               }}
               name="sign-in with google"
             >
