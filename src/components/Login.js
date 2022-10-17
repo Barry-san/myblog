@@ -45,6 +45,7 @@ const Login = () => {
             <button
               onClick={() => {
                 signInWithRedirect(auth, provider);
+                navigate("/");
               }}
               name="sign-in with google"
             >
