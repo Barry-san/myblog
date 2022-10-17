@@ -11,6 +11,7 @@ import React, { useState } from "react";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
 import Blogdetails from "./components/Blogdetails";
+import UseFetch from "./hooks/useFetch";
 
 export const userContext = React.createContext();
 
@@ -25,6 +26,7 @@ function App() {
       }
     });
   }, [user]);
+  const props = UseFetch();
 
   return (
     <BrowserRouter>
@@ -33,10 +35,14 @@ function App() {
           <Navbar />
         </userContext.Provider>
         <Routes>
-          <Route exact path="/" element={<Home />}></Route>
+          <Route exact path="/" element={<Home props={props}></Home>}></Route>
           <Route exact path="/login" element={<Login />}></Route>
           <Route exact path="/register" element={<Register />}></Route>
-          <Route exact path="/blog/:id" element={<Blogdetails />}></Route>
+          <Route
+            exact
+            path="/blog/:id"
+            element={<Blogdetails props={props} />}
+          ></Route>
           {user && (
             <Route exact path="/create" element={<Create></Create>}></Route>
           )}
