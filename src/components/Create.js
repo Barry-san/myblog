@@ -1,18 +1,19 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import "../styles/Create.css";
 import { db } from "../config/firebaseConfig";
-import {
-  collection,
-  addDoc,
-  connectFirestoreEmulator,
-} from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-import Profile from "./Profile";
 
 const Create = () => {
   const temp = localStorage.getItem("user");
   const user = JSON.parse(temp);
-  const author = user.displayName;
+  let author = "";
+  console.log(user);
+  if (user.displayName) {
+    author = user.displayName;
+  } else {
+    author = user.email;
+  }
   console.warn(author);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -43,7 +44,7 @@ const Create = () => {
   };
   return (
     <div className="create">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="text-group">
           <label>Blog Title</label>
           <input
@@ -73,11 +74,9 @@ const Create = () => {
             value={content}
             onChange={handleContent}
           ></textarea>
-          <input type="file"></input>
         </div>
-        <button onClick={handleSubmit}>submit</button>
+        <button className="blog-submit">submit</button>
       </form>
-      <Profile />
     </div>
   );
 };
