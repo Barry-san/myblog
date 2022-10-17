@@ -56,7 +56,7 @@ const Login = () => {
           </div>
           <p>or sign in with email and password:</p>
         </div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Email</label>
             <input type="email" required value={email} onChange={handleEmail} />
@@ -73,7 +73,7 @@ const Login = () => {
           <div className="btn-div">
             <button
               className="login-btn"
-              onClick={handleSubmit}
+              // onClick={handleSubmit}
               name="login button"
             >
               Login
