@@ -44,7 +44,11 @@ const Login = () => {
           <div>
             <button
               onClick={async () => {
-                await signInWithRedirect(auth, provider).then(navigate("/"));
+                await signInWithRedirect(auth, provider)
+                  .then(navigate("/"))
+                  .catch((err) => {
+                    console.log(err);
+                  });
               }}
               name="sign-in with google"
             >
