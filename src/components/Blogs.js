@@ -6,7 +6,7 @@ const Blogs = (props) => {
     <div className="Blogs">
       {console.log(props.blog)}
       {props.blog.data.map((blog) => {
-        return <Blogcard blog={blog}></Blogcard>;
+        return <Blogcard blog={blog} key={blog.id}></Blogcard>;
       })}
     </div>
   );
