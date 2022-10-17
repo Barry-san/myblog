@@ -16,6 +16,7 @@
   gap: 0.4rem;
   min-width: 70%;
   margin: 0.5rem;
+  /* justify-content: space-around; */
 }
 input {
   font-size: 1em;

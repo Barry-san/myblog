@@ -6,3 +6,7 @@
   max-width: 30rem;
   margin: auto;
 }
+.blog-submit {
+  margin: auto auto;
+  display: block;
+}
