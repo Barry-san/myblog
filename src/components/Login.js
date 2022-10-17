@@ -6,7 +6,7 @@ import {
   signInWithRedirect,
 } from "firebase/auth";
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const provider = new GoogleAuthProvider();
@@ -33,18 +33,10 @@ const Login = () => {
         });
     }
   };
-  // const handleSubmit2 = (e) => {
-  //   e.preventDefault();
-  //   createUserWithEmailAndPassword(auth, email, password)
-  //     .then(() => {
-  //       navigate("/");
-  //     })
-  //     .catch((err) => {
-  //       alert(err);
-  //     });
-  // };
+
   const handleClicky = () => {
-    signInWithRedirect(auth, provider).then(navigate("/"));
+    signInWithRedirect(auth, provider);
+    // navigate("/");
   };
   return (
     <div className="login">
@@ -82,14 +74,6 @@ const Login = () => {
             >
               Login
             </button>
-            {/* <button
-              classnanme="reg-btn"
-              name="register button"
-              style={{ background: "white", color: "purple" }}
-            >
-              <Link to={"/register"}></Link>
-              Register
-            </button> */}
           </div>
         </form>
       </div>
