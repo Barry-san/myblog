@@ -36,8 +36,10 @@ function App() {
         </userContext.Provider>
         <Routes>
           <Route exact path="/" element={<Home props={props}></Home>}></Route>
-          {!user && <Route exact path="/login" element={<Login />}></Route>}
-          <Route exact path="/register" element={<Register />}></Route>
+          {!user && (
+            <Route exact path="/auth/login" element={<Login />}></Route>
+          )}
+          <Route exact path="/auth/register" element={<Register />}></Route>
           <Route
             exact
             path="/blog/:id"
