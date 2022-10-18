@@ -1,0 +1,18 @@
+.blogdetails {
+  font-size: 1.25rem;
+}
+.blog-content {
+  width: 80%;
+  text-align: justify;
+  margin: auto auto;
+  /* outline: solid black 1px; */
+}
+.blog-heading {
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .blogdetails {
+    font-size: 1rem;
+  }
+}

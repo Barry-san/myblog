@@ -1,13 +1,11 @@
 import "../styles/Login.css";
 import { auth } from "../config/firebaseConfig";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { useState, useContext } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { userContext } from "../App";
 
 const Register = () => {
   const navigate = useNavigate();
-  const user = useContext(userContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirst] = useState("");
@@ -32,7 +30,6 @@ const Register = () => {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
-        updateProfile(user, { displayName: firstName + lastName });
         navigate("/");
       })
       .catch((error) => {

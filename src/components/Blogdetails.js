@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import "../styles/Blogdetails.css";
 
 const Blogdetails = (props) => {
   const { id } = useParams();
@@ -7,9 +8,14 @@ const Blogdetails = (props) => {
   });
   return (
     <div className="blogdetails">
-      {!props.props.isPending && <h2>{blog.title}</h2>}
-      <p>{blog.author}</p>
-      <p>{blog.content}</p>
+      <div className="blog-heading">
+        <h2>{blog.title}</h2>
+        <p>{blog.author}</p>
+      </div>
+
+      <div className="blog-content">
+        <blockquote>{blog.content}</blockquote>
+      </div>
     </div>
   );
 };

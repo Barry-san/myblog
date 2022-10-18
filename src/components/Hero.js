@@ -7,10 +7,10 @@ const Hero = () => {
       <div className="children">
         <div className="text">
           <div className="title">
-            <h2>Unleashing Creativity</h2>
-            <p className="author">
-              <i>written by BarryFischer</i>
-            </p>
+            <h2>Unleash your Creativity</h2>
+            {/* <p className="author"> */}
+            {/* <i>written by BarryFischer</i> */}
+            {/* </p> */}
           </div>
           <p>
             “There is no doubt that creativity is the most important human
