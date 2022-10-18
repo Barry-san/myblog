@@ -43,7 +43,7 @@ const Register = () => {
     <div className="login">
       <div className="banner"></div>
       <div className="form-container">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>First Name:</label>
             <input
@@ -76,11 +76,7 @@ const Register = () => {
             />
           </div>
           <div className="btn-div">
-            <button
-              classnanme="reg-btn"
-              //   onClick={handleSubmit2}
-              name="register button"
-            >
+            <button classnanme="reg-btn" name="register button">
               Register
             </button>
           </div>
