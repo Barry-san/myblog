@@ -7,8 +7,6 @@ const Blogdetails = (props) => {
   });
   return (
     <div className="blogdetails">
-      {console.log(blog)}
-
       {!props.props.isPending && <h2>{blog.title}</h2>}
       <p>{blog.author}</p>
       <p>{blog.content}</p>

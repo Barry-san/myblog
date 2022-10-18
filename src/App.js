@@ -18,7 +18,6 @@ export const userContext = React.createContext();
 function App() {
   const [user, setUser] = useState("");
   useEffect(() => {
-    console.log("useEffect ran");
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
