@@ -3,15 +3,25 @@ import Navlinks from "./Navlinks";
 import "../../styles/mobileNav.css";
 
 const MobileNav = () => {
-  let clicked = false;
+  let open = false;
+  const handleOpen = () => {
+    document.querySelector(".dropdown").style.transform = "translateX(0%)";
+  };
+  const handleClose = () => {
+    document.querySelector(".dropdown").style.transform = "translateX(-100%)";
+  };
   const handlClick = () => {
-    clicked = !clicked;
-    clicked
-      ? (document.querySelector(".dropdown").style.display = "block")
-      : (document.querySelector(".dropdown").style.display = "none");
+    open ? handleClose() : handleOpen();
+    open = !open;
   };
   return (
-    <div className="mobile-nav">
+    <div
+      className="mobile-nav"
+      onBlur={() => {
+        handleClose();
+        open = false;
+      }}
+    >
       <div className="nav">
         <Link to={"/"} className="blog-name">
           Bankai!
@@ -20,7 +30,7 @@ const MobileNav = () => {
       </div>
 
       {
-        <div className="dropdown" onBlur={handlClick}>
+        <div className="dropdown">
           <Navlinks></Navlinks>
         </div>
       }

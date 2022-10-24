@@ -42,34 +42,43 @@ const Register = () => {
       <div className="form-container">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>First Name:</label>
+            <label for="firstName">First Name:</label>
             <input
               type="text"
               required
               value={firstName}
               onChange={handleFirst}
+              id="firstName"
             />
           </div>
           <div className="form-group">
-            <label>Last Name</label>
+            <label for="lastName">Last Name</label>
             <input
               type="text"
               required
               value={lastName}
               onChange={handleLast}
+              id="lastName"
             />
           </div>
           <div className="form-group">
-            <label>Email</label>
-            <input type="email" required value={email} onChange={handleEmail} />
+            <label for="email">Email</label>
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={handleEmail}
+              id="email"
+            />
           </div>
           <div className="form-group">
-            <label>Password</label>
+            <label for="password">Password</label>
             <input
               type="password"
               required
               value={password}
               onChange={handlePassword}
+              id="password"
             />
           </div>
           <div className="btn-div">

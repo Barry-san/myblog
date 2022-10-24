@@ -10,7 +10,9 @@ const Blogdetails = (props) => {
     <div className="blogdetails">
       <div className="blog-heading">
         <h2>{blog.title}</h2>
-        <p>{blog.author}</p>
+        <i>
+          <p style={{ textDecoration: "underline" }}>{blog.author}</p>
+        </i>
       </div>
 
       <div className="blog-content">

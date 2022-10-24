@@ -25,7 +25,7 @@ const Login = () => {
     if (email && password) {
       e.preventDefault();
       signInWithEmailAndPassword(auth, email, password)
-        .then((res) => {
+        .then(() => {
           navigate("/");
         })
         .catch((error) => {
@@ -42,8 +42,8 @@ const Login = () => {
           <h1 className="Login-heading">Login</h1>
           <div>
             <button
-              onClick={async () => {
-                await signInWithRedirect(auth, provider)
+              onClick={() => {
+                signInWithRedirect(auth, provider)
                   .then(navigate("/"))
                   .catch((err) => {
                     console.log(err.message);
@@ -59,12 +59,19 @@ const Login = () => {
         </div>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>Email</label>
-            <input type="email" required value={email} onChange={handleEmail} />
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              required
+              value={email}
+              onChange={handleEmail}
+            />
           </div>
           <div className="form-group">
-            <label>Password</label>
+            <label for="password">Password</label>
             <input
+              id="password"
               type="password"
               required
               value={password}
@@ -72,7 +79,7 @@ const Login = () => {
             />
           </div>
           <div className="btn-div">
-            <button className="login-btn" name="login button">
+            <button className="login-btn" name="login button" type="submit">
               Login
             </button>
           </div>

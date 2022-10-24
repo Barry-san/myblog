@@ -29,26 +29,29 @@
 
 .dropdown {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.3);
-  display: none;
-  top: 40px;
-  right: 0px;
-  width: 100%;
-  margin: 20px 0px;
-  transition: ease-in-out 1s;
+  background-color: rgba(0 0 0 /0.1);
+  display: flex;
+  transform: translateX(-100%);
+  justify-content: space-around;
+  top: 60px;
+  left: 0;
+  width: 80%;
+  height: 100vh;
+  transition: ease-out 0.5s;
+  backdrop-filter: blur(0.7rem);
+  padding: 25vh 0;
 }
 
 .dropdown > .navlinks > .links {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-evenly;
   text-align: center;
   width: 100%;
 }
 .dropdown > .navlinks > .links > a {
-  font-size: 1rem;
+  font-size: 1.3rem;
   width: 100%;
-  color: white;
   font-weight: 500;
   padding: 0.65rem;
 }
